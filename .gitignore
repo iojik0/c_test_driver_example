@@ -1,0 +1,33 @@
+# Компилированные исполняемые файлы
+*.exe
+*.out
+*.o
+*.obj
+*.gch
+
+# Каталоги сборки
+/build/
+/bin/
+/Debug/
+/Release/
+/x64/
+/win32/
+
+# Файлы среды разработки
+*.swp
+*.swo
+*.vscode/
+*.idea/
+
+# Visual Studio файлы проекта
+*.sln
+*.slnx
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.suo
+*.user
+
+# Логи и временные файлы
+*.log
+*.tmp
