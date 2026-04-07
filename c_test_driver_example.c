@@ -6,8 +6,40 @@ void testSearchIndex();
 
 int main()
 {
-    testSearchIndex();
+    int length;
+    int array[20];
+    int result[20];
+    int count;
+    // ввод размера массива
+    printf("input length array [4-20] - ");
+    scanf("%d", &length);
+    if ((length < 4) || (length > 20)) {
+        printf("invalid input");
+        return -1;
+    }
+    printf("----------------------------------------------------------\n");
+    // ввод элементов массива
+    for (int i = 0; i < length; i++) {
+        scanf("%d", &array[i]);
+        if ((array[i] < 0) || (array[i] > 1000)) {
+            printf("invalid input");
+            return -1;
+        }
+    }
+    printf("----------------------------------------------------------\n");
+    // вызов функции searchIndex
+    count = searchIndex(length, array, result);
+    // вывод массива содержащего индексы элементом,
+    // сумма соседних элементов которого максимальна
+    for (int i = 0; i < count; i++) {
+        printf("%d ",result[i]);
+    }
 
+    // проверка тестами
+    printf("\n---------------------------test---------------------------\n");
+    testSearchIndex();
+    printf("----------------------------------------------------------\n");
+    // выход из программы
     return 0;
 }
 
@@ -39,9 +71,9 @@ int searchIndex(int length, const int array[], int result[]) {
 // тестовый драйвер
 void testSearchIndex() {
     // кол-во тестов
-    const int testCount = 7;
+    #define TEST_COUNT 7
 
-    char textNames[testCount][50] = {
+    char textNames[TEST_COUNT][50] = {
     "base case",                           // базовый случай
     "several indices with the same sum",   // несколько индексов с одинаковой суммой
     "all amounts are equal",               // все суммы равны
@@ -52,7 +84,7 @@ void testSearchIndex() {
     };
 
     // входные данные для тестирования
-    int testArray[testCount][20] = {
+    int testArray[TEST_COUNT][20] = {
         {1,2,3,4,5},
         {10,1,10,1,10},
         {5,0,5,0,5},
@@ -62,9 +94,9 @@ void testSearchIndex() {
         {1,2,3,4}
     };
 
-    int testLength[testCount] = { 5,5,5,5,5,5,4 };
+    int testLength[TEST_COUNT] = { 5,5,5,5,5,5,4 };
 
-    int expResult[testCount][20] = {
+    int expResult[TEST_COUNT][20] = {
         {3},
         {1,3},
         {1,3},
@@ -74,14 +106,14 @@ void testSearchIndex() {
         {2}
     };
 
-    int expCount[testCount] = { 1,2,2,1,1,3,1 };
+    int expCount[TEST_COUNT] = { 1,2,2,1,1,3,1 };
 
-    int realCount[testCount];
-    int realResult[testCount][20];
+    int realCount[TEST_COUNT];
+    int realResult[TEST_COUNT][20];
 
     int isOk;
 
-    for (int i = 0; i < testCount;i++) {
+    for (int i = 0; i < TEST_COUNT;i++) {
         // вызываем тестируемую функцию
         realCount[i] = searchIndex(testLength[i], testArray[i], realResult[i]);
         // сравниваем ожидаемый и реальный результат
