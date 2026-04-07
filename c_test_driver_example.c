@@ -1,7 +1,7 @@
 ﻿#include <stdio.h>
 #pragma warning(disable : 4996)
 
-int searchIndex(int length, const int array[], int resultat[]);
+int searchIndex(int length, const int array[], int result[]);
 void testSearchIndex();
 
 int main()
