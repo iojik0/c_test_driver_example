@@ -31,3 +31,11 @@
 # Логи и временные файлы
 *.log
 *.tmp
+
+# Visual Studio временные файлы сборки (добавить)
+*.tlog
+*.ilk
+*.pdb
+*.exe.recipe
+*.idb
+c_text_d.*/
